@@ -7,20 +7,15 @@ import {RedPacket} from "../src/RedPacket.sol";
 contract RedPacketScript is Script {
     address public factory;
 
-    function setUp() public {
-        // Read the factory address from environment variables
-        factory = vm.envAddress("FACTORY_ADDRESS");
-    }
+
 
     function run() public {
         // Read the deployer's private key from environment variables
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
-        address deployerAddress = vm.addr(deployerPrivateKey);
 
-        console.log("Deploying contracts with the account:", deployerAddress);
+        factory=0xC84175A9943355Df5A14B08aD69282ec95FCB87d;
 
         // Start broadcasting transactions
-        vm.startBroadcast(deployerPrivateKey);
+        vm.startBroadcast();
 
         // Deploy the RedPacket contract
         RedPacket redpacket = new RedPacket(factory);

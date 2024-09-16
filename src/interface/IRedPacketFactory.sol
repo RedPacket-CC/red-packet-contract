@@ -24,7 +24,7 @@ interface IRedPacketFactory {
 
     /// @notice Sets the NFT contract address
     /// @param _nftContract The new NFT contract address
-    function setNftContract(address _nftContract) external;
+
 
     /// @notice Creates a new red packet
     /// @param recipient The address of the recipient of the red packet
@@ -38,5 +38,5 @@ interface IRedPacketFactory {
     /// @notice Gets the account address for a given token ID
     /// @param _tokenId The ID of the token
     /// @return The address of the account associated with the token ID
-    function getAccount(uint256 _tokenId) external view returns (address);
+ 
 }

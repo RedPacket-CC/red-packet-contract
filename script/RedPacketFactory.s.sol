@@ -8,22 +8,16 @@ import {ERC6551Registry} from "../src/ERC6551Registry.sol";
 
 contract RedPacketFactoryScript is Script {
     RedPacketFactory public factory;
-    address public nftContract;
-    address public registry;
-    address public implementation;
 
-    function setUp() public {
-        nftContract = vm.envAddress("NFT_CONTRACT_ADDRESS");
-        registry = vm.envAddress("REGISTRY_ADDRESS");
-        implementation = vm.envAddress("ERC6551ACCOUNT_ADDRESS");
-    }
 
     function run() public {
-        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
+        
+        address registry = 0x724401E256D94eA9c8567cCbE23eC977B20AE37b;
+        address implementation = 0x8f67ff5233dD6733a9338197C53CA076098400Ba;
 
-        vm.startBroadcast(deployerPrivateKey);
+        vm.startBroadcast();
 
-        factory = new RedPacketFactory(nftContract, registry, implementation);
+        factory = new RedPacketFactory (registry, implementation);
 
         console.log("RedPacketFactory deployed to:", address(factory));
 
